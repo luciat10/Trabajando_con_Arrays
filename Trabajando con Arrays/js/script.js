@@ -39,13 +39,13 @@ function showList(array) {
 document.addEventListener("DOMContentLoaded", (e) => {
   // Escribe tu solución aquí
   // Filtrar los elementos que sean de tipo String
-  const stringElements = strangeArray.filter(element => typeof element === 'string');
-    
-  // Ordenar los elementos alfabéticamente
-  stringElements.sort();
+  const arrayFiltrado= strangeArray.filter(element => typeof element === 'string');
+  
+  // Ordenar alfabéticamente sin distinguir mayúsculas y minusculas en los elementos filtrados 
+  const arrayOrdenado = arrayFiltrado.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
   
   // Mostrar los elementos en el elemento ul con id "list"
-  showList(stringElements);
+  showList(arrayOrdenado);
 });
   
   // Sugerencia de cómo mostrar el array => showList(strangeArray);
